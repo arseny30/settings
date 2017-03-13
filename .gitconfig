@@ -1,0 +1,11 @@
+[user]
+	name = Arseny Smirnov
+	email = arseny30@gmail.com
+[core]
+	editor = vim
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
