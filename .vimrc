@@ -1,4 +1,5 @@
 set nocompatible              " be iMproved, required
+
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -20,9 +21,6 @@ Plugin 'scrooloose/nerdtree'
 " Easy comment/uncomment
 Plugin 'scrooloose/nerdcommenter'
 
-" Nice line with miscellaneous information
-Plugin 'bling/vim-airline'
-
 " Color schemes
 Plugin 'Lucius'
 Plugin 'sjl/badwolf'
@@ -43,23 +41,33 @@ Plugin 'kana/vim-textobj-line'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'kana/vim-operator-user'
 
-Plugin 'terryma/vim-expand-region'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'matze/vim-move'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'vim-scripts/a.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'terryma/vim-expand-region'
 
+Plugin 'vimwiki/vimwiki'
+
+Plugin 'fatih/vim-go'
+
+"Plugin tpope/vim-obsession
 " to explore
 "Plugin 'tpope/vim-surround'
 "Plugin 'derekwyatt/vim-scala'
 "Plugin 'plasticboy/vim-markdown'
-"Plugin 'ctrlpvim/ctrlp.vim'
 "Plugin 'vim-scripts/argtextobj.vim'
-"Plugin 'vimwiki/vimwiki'
-"Plugin tpope/vim-obsession
+"
 
+" Fix mappings and use?
+" Crazy default keys mapping, but nice
+"Plugin 'matze/vim-move'
+
+" Nice line with miscellaneous information
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -83,10 +91,10 @@ set wildmenu
 map <Leader> <Plug>(easymotion-prefix)
 
 " Color scheme
-"colorscheme badwolf
+colorscheme badwolf
 "colorscheme lucius
 "LuciusBlack
-colorscheme dracula
+"colorscheme dracula
 
 " Rainbow parentheses
 au VimEnter * RainbowParenthesesToggle
@@ -117,21 +125,21 @@ autocmd BufWritePre *.cpp,*.h,*.hpp,*.c :%pyf ~/.vim/clang-format.py
 augroup END
 
 " expand region
-map K <Plug>(expand_region_expand)
-map J <Plug>(expand_region_shrink)
+map <C-k> <Plug>(expand_region_expand)
+map <C-j> <Plug>(expand_region_shrink)
 let g:expand_region_text_objects = {
       \ 'iw'  :0,
       \ 'iW'  :0,
       \ 'i"'  :0,
       \ 'i''' :0,
       \ 'i]'  :1,
-      \ 'ib'  :1, 
-      \ 'iB'  :1, 
+      \ 'ib'  :1,
+      \ 'iB'  :1,
       \ 'ia'  :0,
       \ 'aa'  :0,
       \ 'if'  :0,
       \ 'af'  :0,
-      \ 'il'  :0, 
+      \ 'il'  :0,
       \ 'ip'  :0,
       \ 'ie'  :0,
       \ }
@@ -145,11 +153,16 @@ let g:move_key_modifier = 'C'
 " fswitch
 nmap <silent> <Leader>of :FSHere<cr>
 
+" airline
+set laststatus=2
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#ycm#enabled = 1
+
 "map gm :e <cfile>.md<cr>
 
 "set keymap=russian-jcukenwin
-"set iminsert=0  
-"set imsearch=0  
+"set iminsert=0
+"set imsearch=0
 ""setlocal spell spelllang=ru_ru,en_us
 
 " syntastic
