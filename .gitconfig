@@ -3,10 +3,19 @@
 	email = arseny30@gmail.com
 [core]
 	editor = vim
+	difftool = vimdiff
+	autocrlf = false
 [diff]
 	tool = vimdiff
+[merge]
+	tool = vimdiff
+[pull]
+	ff = only
+	rebase = true
 [difftool]
 	prompt = false
 [alias]
 	d = difftool
         lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+[credential]
+	helper = osxkeychain
