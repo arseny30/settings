@@ -39,8 +39,11 @@ function notify_after_command() {
  notify "$*";
 }
 
+IGNOREEOF=1
+
 alias make='notify_after_command nice -n6 make'
 alias ninja='notify_after_command nice -n6 ninja'
+alias vim='mvim -v'
 
 
 # Utils
